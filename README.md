@@ -1,4 +1,8 @@
 # Angular 13 for Beginners | Angular FULL Course | Learn Smart Coding
+
+Video tutorial can be found at https://www.youtube.com/watch?v=fOIPdAYUsk0&t=395s
+
+
 This Repository is Angular 13 for Beginners, Angular FULL Course. This is a beginner course and covers most of the basic and required features of Angular to start the development of an application.
 
 We will cover the following topics in this Angular 13 for Beginners, Angular FULL Course.
