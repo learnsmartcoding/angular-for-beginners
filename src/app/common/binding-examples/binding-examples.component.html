@@ -1,0 +1,31 @@
+<div class="container">
+    <h1 [innerHtml]="title + ' Examples'" [title]="title"></h1>
+    <br>
+    <div class="row">
+        <div class="col-md-8">Filter 
+            <input id="txtFruit" class="form-control"
+           [(ngModel)]="searchFruit" 
+           (ngModelChange)="dataChanged($event)"/>
+           Add new fruit <input class="form-control"     [(ngModel)]="newFruit" 
+           />
+        </div>
+         
+         <div class="col-md-4"><button 
+            (click)="addFruit()"
+            class="btn btn-primary">Add Fruit</button></div>
+    </div>
+    <br>
+    <div *ngIf="fruits.length">
+        <h3 >Fruits</h3>
+        <div>
+            <ol>
+                <li *ngFor="let fruit of fruits">{{fruit}}</li>                
+            </ol>
+        </div>
+    </div>
+</div>
+
+<pre>
+    {{searchFruit| json}}
+    
+</pre>

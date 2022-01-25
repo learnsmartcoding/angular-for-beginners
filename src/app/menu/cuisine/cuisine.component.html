@@ -1,0 +1,34 @@
+<br>
+<div *ngIf="!cuisines.length">
+    <h5>Loading... Please wait !</h5>
+</div>
+
+<div *ngIf="cuisines.length">
+    <div class="row">
+        <div class="col-md-2">
+            <h2 class="title-heading">Cuisines</h2>
+        </div>
+        <div class="col-md-10">
+            <ul class="nav nav-pills nav-fill">
+                <li class="nav-item" *ngFor="let item of cuisines">
+                    <a class="nav-link" [ngClass]="{'active':getMenuClass(item)}" href="javascript:void(0);"
+                        (mouseover)="getMenuClass(item);setActiveMenu(item)">{{item.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <br>
+    <div>
+        <h3 class="title-sub-heading">About {{selectedCuisine?.name}} Cuisine</h3>
+        <p>
+            {{selectedCuisine?.description}}
+        </p>
+    </div>
+</div>
+
+<div *ngIf="foodMenuHovered?.name">
+    <p><b>{{foodMenuHovered.name}} is from {{selectedCuisine?.name}} Cuisine</b></p>
+    <br>
+</div>
+
+<app-food-items *ngIf="selectedCuisine?.id" [cusineId]="+selectedCuisine.id" (onHoverFoodItem)="onHoverFoodItem($event)"></app-food-items>

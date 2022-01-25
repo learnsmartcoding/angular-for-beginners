@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-md-4" *ngFor="let item of foodMenus">
+
+    <div class="card" style="width: 22rem;" (mouseover)="onItemHover(item)">
+      <img class="card-img-top" src="data:{{item.foodImage.mime}};base64,{{item.foodImage.base64Image}}"
+        alt="{{item.name}}">
+      <div class="card-body">
+        <h3>{{item.name}} </h3> <small>({{getCategory(item.categoryId)}})</small>
+        <p class="card-text">{{item?.description}}</p>
+        <b>Price : <span>{{item.price | currency}}</span></b><br>
+        <button class="btn btn-primary" (click)="navigateToFoodItem(item.id)">View Details</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Below lines of code shows you lifecycle hooks logs  -->
+
+<!-- <div class="container">
+  <h1>Life Cycle Hooks - Examples</h1>
+  <br>
+  <div>
+      <ol>
+          <li [class]="log.color" *ngFor="let log of eventLogs">{{log.message}}</li>
+      </ol>
+  </div>
+</div> -->

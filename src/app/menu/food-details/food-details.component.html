@@ -1,0 +1,31 @@
+<br>
+<h1 *ngIf="foodMenu?.name" class="title-heading">{{foodMenu.name}} <small>({{getCategory(foodMenu.categoryId)}})</small>
+</h1>
+<div class="row">
+    <div class="col-md-3">
+
+    </div>
+    <div class="col-md-6">
+
+        <div *ngIf="foodMenuImages?.length" class="card" style="width: 35rem;">
+            <carousel [isAnimated]="true">
+                <slide *ngFor="let item of foodMenuImages">
+                    <img src="data:{{item.mime}};base64,{{item.base64Image}}" alt="first slide" height="400px"
+                        width="400px" style="display: block; width: 100%;">
+                </slide>
+
+            </carousel>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+
+    </div>
+</div>
+<br>
+<div *ngIf="foodMenu?.name">
+    <p class="">{{foodMenu?.description}}</p>
+    <b>Price : <span>{{foodMenu.price | currency}}</span></b><br>
+</div>
+<br><br>
+<a class="nav-link" [routerLink]="['/cuisine']">GO BACK</a>
