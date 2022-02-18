@@ -11,6 +11,11 @@ const routes: Routes = [
     path: 'cuisine',
     loadChildren: () => import('./menu/menu.module').then((m) => m.MenuModule),
   },
+  {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

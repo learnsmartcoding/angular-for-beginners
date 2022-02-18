@@ -7,7 +7,7 @@ import { EnvironmentConfiguration } from 'src/app/core/models/environment-config
 export const environment: EnvironmentConfiguration = {
   env_name: 'dev',
   production: false,
-  apiUrl: 'https://learnsmartcoding-restaurant.azurewebsites.net/api',
+  apiUrl: 'http://localhost:5000/api',
   apiEndpoints: {
     category: 'category',
     cuisine: 'cuisine',

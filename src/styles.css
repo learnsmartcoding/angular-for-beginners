@@ -5,3 +5,13 @@
 .title-sub-heading {
     color: orange;
 }
+
+
+.has-error{
+    border-color: #ff0000;    
+    border-style: solid;
+}
+
+.cursor {
+    cursor: pointer;
+}

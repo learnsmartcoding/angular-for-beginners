@@ -1,0 +1,40 @@
+<h3>Edit Cuisine</h3><br>
+<div>
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Processing...</p>
+    </ngx-spinner>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <app-display-errors [errors]="errors"></app-display-errors>
+        <div>
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input class="form-control" formControlName="name" type="text" maxlength="50"
+                    [class.has-error]="control('name')?.errors" placeholder="Enter category name here" />
+                <app-label-error [control]="control('name')"></app-label-error>
+            </div>
+            <label for="description">Cuisine Description</label>
+            <div class="form-group">
+                <div class="form-line">
+                    <textarea rows="10" formControlName="description" class="form-control" 
+                        [class.has-error]="control('description')?.errors" placeholder="Enter description of the cuisine">
+                            </textarea>
+                </div>
+                <app-label-error [control]="control('description')"></app-label-error>
+            </div>
+            <div class="form-group">
+                <label for="isActive">Status</label>
+                <select class="form-control" formControlName="isActive" [class.has-error]="control('isActive')?.errors">
+                    <option value="">Select</option>
+                    <option value="true">Active</option>
+                    <option value="false">InActive</option>
+                </select>
+                <app-label-error [control]="control('isActive')"></app-label-error>
+            </div>
+            <button class="btn btn-success btn-block" type="submit">Save</button>
+        </div>
+    </form>
+    <div>
+        <a class="nav-link" [routerLink]="['/admin/cuisine']">GO BACK</a>
+    </div>
+</div>

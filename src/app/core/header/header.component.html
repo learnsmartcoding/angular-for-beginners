@@ -18,6 +18,19 @@
         <a class="nav-link" [routerLink]="['/cuisine']">Menu <span class="sr-only">(current)</span></a>
       </li>
 
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">    
+          <a class="dropdown-item" [routerLink]="['/admin/category']">Category</a>
+          <a class="dropdown-item" [routerLink]="['/admin/cuisine']">Cuisine</a>
+          <!-- <div class="dropdown-divider"></div> -->
+      
+        </div>
+      </li>
+
 
     </ul>
     <form class="form-inline my-2 my-lg-0">
