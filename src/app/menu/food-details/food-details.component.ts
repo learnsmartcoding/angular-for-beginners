@@ -29,7 +29,7 @@ export class FoodDetailsComponent implements OnInit {
     //this.route.data.subscribe(data=>this.foodMenuResolved = data['foodMenuItem']);
     this.foodMenuResolved = this.route.snapshot.data['foodMenuItem'];
     this.foodMenu = <FoodMenu>this.foodMenuResolved.foodMenu;
-    alert(JSON.stringify(this.foodMenu));
+    
   }
 
   ngOnInit(): void {
