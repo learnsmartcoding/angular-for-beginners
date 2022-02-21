@@ -1,5 +1,5 @@
 <br>
-<h1 *ngIf="foodMenu?.name" class="title-heading">{{foodMenu.name}} <small>({{getCategory(foodMenu.categoryId)}})</small>
+<h1 *ngIf="foodMenu?.name" class="title-heading">{{foodMenu?.name}} <small>({{getCategory(foodMenu?.categoryId)}})</small>
 </h1>
 <div class="row">
     <div class="col-md-3">
@@ -25,7 +25,7 @@
 <br>
 <div *ngIf="foodMenu?.name">
     <p class="">{{foodMenu?.description}}</p>
-    <b>Price : <span>{{foodMenu.price | currency}}</span></b><br>
+    <b>Price : <span>{{foodMenu?.price | currency}}</span></b><br>
 </div>
 <br><br>
 <a class="nav-link" [routerLink]="['/cuisine']">GO BACK</a>
