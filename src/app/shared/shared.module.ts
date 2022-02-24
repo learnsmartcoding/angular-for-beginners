@@ -5,6 +5,9 @@ import { RouterModule } from '@angular/router';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { DisplayErrorsComponent } from './display-errors/display-errors.component';
 import { LabelErrorComponent } from './label-error/label-error.component';
+import { ReplaceStringPipe } from './pipes/string-replace.pipe';
+import { ToPascalPipe } from './pipes/to-pascal.pipe';
+
 
 @NgModule({
   imports: [
@@ -14,7 +17,7 @@ import { LabelErrorComponent } from './label-error/label-error.component';
     ReactiveFormsModule,
     TooltipModule,
   ],
-  declarations: [DisplayErrorsComponent, LabelErrorComponent],
-  exports: [DisplayErrorsComponent, LabelErrorComponent],
+  declarations: [DisplayErrorsComponent, LabelErrorComponent, ReplaceStringPipe,ToPascalPipe],
+  exports: [DisplayErrorsComponent, LabelErrorComponent,ReplaceStringPipe,ToPascalPipe],
 })
 export class SharedModule {}

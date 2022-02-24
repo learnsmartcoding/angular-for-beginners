@@ -14,6 +14,8 @@ import { HomeComponent } from './Home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { PipeExamplesComponent } from './common/pipe-examples/pipe-examples.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     HeaderComponent,
     FooterComponent,
     BindingExamplesComponent,
-    HomeComponent
+    HomeComponent,
+    PipeExamplesComponent
      ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
       preventDuplicates: true,
     }),
     NgxSpinnerModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    SharedModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }
