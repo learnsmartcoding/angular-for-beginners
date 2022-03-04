@@ -6,7 +6,12 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [routedComponents],
-  imports: [CommonModule, MenuRoutingModule, FormsModule, CarouselModule.forRoot()],
+  imports: [
+    CommonModule,
+    MenuRoutingModule,
+    FormsModule,
+    CarouselModule.forRoot(),
+  ],
   providers: [],
 })
 export class MenuModule {}

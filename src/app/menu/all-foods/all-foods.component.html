@@ -1,6 +1,6 @@
-<div class="container">
-    <h3>{{'Menu' | replacestring :'Menus':'Food Menus'}}
-        
+<div>
+    <h3>All Foods (Includes all Cuisines)
+
     </h3>
     <br>
     <table class="table table-hover">
@@ -13,7 +13,7 @@
                 </td>
                 <td>Category</td>
                 <td>Cuisine</td>
-                <td>Introduced Date</td>
+                <td>View Detail</td>
                 <td>Image</td>
             </tr>
         </thead>
@@ -26,13 +26,12 @@
                 <td>{{item.price | currency:'USD'}}</td>
                 <td>{{getCategory(item.categoryId)}}</td>
                 <td>{{getCuisine(item.cuisineId)}}</td>
-                <td>{{getDate() | date:'MM/dd/yyyy'}}</td>
+                <td> <a class="btn btn-sm btn-primary" [routerLink]="['/cuisine/food', item.id]">View</a></td>
                 <td>
-                    <img class="card-img-top"
-                        src="data:{{item.foodImage.mime}};base64,{{item.foodImage.base64Image}}" alt="{{item.name}}">
+                    <img class="card-img-top" src="data:{{item.foodImage.mime}};base64,{{item.foodImage.base64Image}}"
+                        alt="{{item.name}}">
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
-

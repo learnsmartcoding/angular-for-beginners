@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
-import { Cuisine, FoodMenu } from 'src/app/models/food-menu.model';
+import { FoodMenu, Cuisine } from 'src/app/models/food-menu.model';
 import { CategoryService } from 'src/app/services/category.service';
 import { CuisineService } from 'src/app/services/cuisine.service';
 import { FoodMenuService } from 'src/app/services/foodmenu.service';
 
 @Component({
-  selector: 'app-pipe-examples',
-  templateUrl: './pipe-examples.component.html',
-  styleUrls: ['./pipe-examples.component.css'],
+  selector: 'app-all-foods',
+  templateUrl: './all-foods.component.html',
+  styleUrls: ['./all-foods.component.css']
 })
-export class PipeExamplesComponent implements OnInit {
+export class AllFoodsComponent implements OnInit {
+
   foodMenus: FoodMenu[] = [];
   category: Category[] = [];
   cuisines: Cuisine[] = [];
@@ -55,7 +56,4 @@ export class PipeExamplesComponent implements OnInit {
     return this.category.find((f) => f.id === categoryId)?.name;
   }
 
-  getDate(){
-    return new Date(2022,2,20);
-  }
 }

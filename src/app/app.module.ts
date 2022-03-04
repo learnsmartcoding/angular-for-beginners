@@ -8,23 +8,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CacheInterceptor } from './core/interceptors/cache.interceptor';
-import { BindingExamplesComponent } from './common/binding-examples/binding-examples.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './Home/home.component';
 import { ToastrModule } from 'ngx-toastr';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { PipeExamplesComponent } from './common/pipe-examples/pipe-examples.component';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,    
     HeaderComponent,
-    FooterComponent,
-    BindingExamplesComponent,
-    HomeComponent,
-    PipeExamplesComponent
+    FooterComponent,   
+    HomeComponent   
      ],
   imports: [
     BrowserModule,
