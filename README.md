@@ -29,6 +29,8 @@ In addition to this, I have also included How to implement time-based caching us
 
 https://www.youtube.com/watch?v=G4B8LrAK3dw&t=549s
 
+Demo App: https://learnsmartcoding-restaurant-web.azurewebsites.net/
+
 By the end of this video, you will have a solid understanding of Angular Basics and you will be able to build new applications.
 
 This is a good start for your career growth. You can even crack interviews with this course. The only thing you need to do is learn and practice more.
