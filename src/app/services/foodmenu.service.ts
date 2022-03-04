@@ -23,6 +23,11 @@ export class FoodMenuService {
     return this.getArrary<FoodMenu>(url);
   }
 
+  GetAllFoodItems(): Observable<FoodMenu[]> {
+    const url = `${this.apiUrl}/${environment.apiEndpoints.foodmenu}/allFoodMenuImages`;
+    return this.getArrary<FoodMenu>(url);
+  }
+
   GetFoodItemDetails(foodItemId: number): Observable<FoodMenu> {
     const url = `${this.apiUrl}/${environment.apiEndpoints.foodmenu}/${foodItemId}`;
     return this.get<FoodMenu>(url);

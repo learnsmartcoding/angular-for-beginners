@@ -8,17 +8,19 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { CacheInterceptor } from './core/interceptors/cache.interceptor';
-import { BindingExamplesComponent } from './common/binding-examples/binding-examples.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './Home/home.component';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,    
     HeaderComponent,
-    FooterComponent,
-    BindingExamplesComponent,
-    HomeComponent
+    FooterComponent,   
+    HomeComponent   
      ],
   imports: [
     BrowserModule,
@@ -26,7 +28,15 @@ import { HomeComponent } from './Home/home.component';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    RouterModule
+    RouterModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
+    NgxSpinnerModule,
+    ModalModule.forRoot(),
+    SharedModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }

@@ -1,14 +1,33 @@
+<div class="card-body">
+  <div class="row">
+    <div class="col-md-4">
+      <h4 *ngIf="listFilter">Filtered by: {{listFilter}}</h4>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-outline-primary btn-sm"
+                      (click)="toggleImage()">
+                {{showImage ? "Hide" : "Show"}} Image
+              </button>
+    </div>
+    <div class="col-md-2">Filter by:</div>
+    <div class="col-md-3">
+      <input type="text" [(ngModel)]="listFilter" />
+    </div>
+  </div>
+</div>
+
 <div class="row">
-  <div class="col-md-4" *ngFor="let item of foodMenus">
+  <div class="col-md-4" *ngFor="let item of filteredFoodMenus">
 
     <div class="card" style="width: 22rem;" (mouseover)="onItemHover(item)">
-      <img class="card-img-top" src="data:{{item.foodImage.mime}};base64,{{item.foodImage.base64Image}}"
+      <img  *ngIf="showImage"  class="card-img-top" src="data:{{item.foodImage.mime}};base64,{{item.foodImage.base64Image}}"
         alt="{{item.name}}">
       <div class="card-body">
         <h3>{{item.name}} </h3> <small>({{getCategory(item.categoryId)}})</small>
         <p class="card-text">{{item?.description}}</p>
         <b>Price : <span>{{item.price | currency}}</span></b><br>
-        <button class="btn btn-primary" (click)="navigateToFoodItem(item.id)">View Details</button>
+        <a class="btn btn-primary" 
+        [routerLink]="['/cuisine/food', item.id]" [queryParams]="{filterBy:listFilter, showImage: showImage}" >View Details</a>
       </div>
     </div>
   </div>

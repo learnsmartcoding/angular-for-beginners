@@ -1,0 +1,37 @@
+<div>
+    <h3>All Foods (Includes all Cuisines)
+
+    </h3>
+    <br>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Description</td>
+                <td>
+                    Price
+                </td>
+                <td>Category</td>
+                <td>Cuisine</td>
+                <td>View Detail</td>
+                <td>Image</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of foodMenus">
+                <td>
+                    {{item.name | uppercase}}
+                </td>
+                <td>{{item.description | titlecase}}</td>
+                <td>{{item.price | currency:'USD'}}</td>
+                <td>{{getCategory(item.categoryId)}}</td>
+                <td>{{getCuisine(item.cuisineId)}}</td>
+                <td> <a class="btn btn-sm btn-primary" [routerLink]="['/cuisine/food', item.id]">View</a></td>
+                <td>
+                    <img class="card-img-top" src="data:{{item.foodImage.mime}};base64,{{item.foodImage.base64Image}}"
+                        alt="{{item.name}}">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

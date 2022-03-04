@@ -3,8 +3,9 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Category } from 'src/app/models/category.model';
 import { FoodMenuImage } from 'src/app/models/food-menu-image.model';
-import { FoodMenu } from 'src/app/models/food-menu.model';
+import { FoodMenu, FoodMenuResolved } from 'src/app/models/food-menu.model';
 import { CategoryService } from 'src/app/services/category.service';
+import { FoodMenuResolver } from 'src/app/services/foodmenu-resolver.service';
 import { FoodMenuService } from 'src/app/services/foodmenu.service';
 
 @Component({
@@ -13,6 +14,7 @@ import { FoodMenuService } from 'src/app/services/foodmenu.service';
   styleUrls: ['./food-details.component.css'],
 })
 export class FoodDetailsComponent implements OnInit {
+  foodMenuResolved!: FoodMenuResolved;
   foodMenu!: FoodMenu;
   category: Category[] = [];
   foodId!: number;
@@ -23,12 +25,16 @@ export class FoodDetailsComponent implements OnInit {
     private categoryService: CategoryService,
     private foodmenuService: FoodMenuService,
     private route: ActivatedRoute
-  ) {}
+  ) {
+    //this.route.data.subscribe(data=>this.foodMenuResolved = data['foodMenuItem']);
+    this.foodMenuResolved = this.route.snapshot.data['foodMenuItem'];
+    this.foodMenu = <FoodMenu>this.foodMenuResolved.foodMenu;
+    
+  }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe((params) => {
       console.log(params);
-
     });
 
     const routeParams = this.route.snapshot.paramMap;
@@ -51,12 +57,12 @@ export class FoodDetailsComponent implements OnInit {
   getCategories() {
     this.categoryService.getCategories().subscribe((s) => {
       this.category = s;
-      this.getFoodDetails();
+      //this.getFoodDetails();
       this.getFoodImages();
     });
   }
 
-  getCategory(categoryId: number): string | undefined {
+  getCategory(categoryId: number | undefined): string | undefined {
     return this.category.find((f) => f.id === categoryId)?.name;
   }
 }

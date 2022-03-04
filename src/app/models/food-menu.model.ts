@@ -17,3 +17,8 @@ export interface FoodMenu {
     foodImage: FoodMenuImage;
 }
 
+
+export interface FoodMenuResolved {
+    foodMenu: FoodMenu | null;
+    error?:any;
+}

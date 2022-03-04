@@ -45,11 +45,11 @@ export class CacheInterceptor implements HttpInterceptor {
         | undefined = this.cacheService.get(req.url);
 
       // return cached response
-      if (cachedResponse) {
-        console.log(`Returning a cached response: ${cachedResponse.url}`);
-        console.log(cachedResponse);
-        return of(cachedResponse);
-      }
+      // if (cachedResponse) {
+      //   console.log(`Returning a cached response: ${cachedResponse.url}`);
+      //   console.log(cachedResponse);
+      //   return of(cachedResponse);
+      // }
 
       // send request to server and add response to cache
       return next.handle(req).pipe(

@@ -1,0 +1,36 @@
+<div class="row col-md-12">
+    <div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <app-display-errors [errors]="errors"></app-display-errors>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input class="form-control" formControlName="name" type="text" maxlength="50"
+                            [class.has-error]="control('name')?.errors" placeholder="Enter category name here" />
+                        <app-label-error [control]="control('name')"></app-label-error>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="isActive">Status</label>
+                        <select class="form-control" formControlName="isActive"
+                            [class.has-error]="control('isActive')?.errors">
+                            <option value="">Select</option>
+                            <option value="true">Active</option>
+                            <option value="false">InActive</option>
+                        </select>
+                        <app-label-error [control]="control('isActive')"></app-label-error>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <button class="btn btn-success btn-block" type="submit">Update</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

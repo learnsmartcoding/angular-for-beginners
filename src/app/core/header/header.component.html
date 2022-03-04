@@ -11,11 +11,43 @@
       <li class="nav-item active">
         <a class="nav-link" [routerLink]="['/home']">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/binding-examples']">Binding Examples</a>
+
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Examples
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/examples/pipes']">Pipes</a>
+          <a class="dropdown-item" [routerLink]="['/examples/data-binding']">Data Binding</a>
+          <!-- <div class="dropdown-divider"></div> -->
+
+        </div>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" [routerLink]="['/cuisine']">Menu <span class="sr-only">(current)</span></a>
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Menu
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/cuisine']">Menu</a>
+          <a class="dropdown-item" [routerLink]="['/cuisine/food/all']">All Foods</a>
+          <!-- <div class="dropdown-divider"></div> -->
+
+        </div>
+      </li>
+
+      <li class="nav-item dropdown active">
+        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbarDropdown" role="button"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Admin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" [routerLink]="['/admin/category']">Category</a>
+          <a class="dropdown-item" [routerLink]="['/admin/cuisine']">Cuisine</a>
+          <!-- <div class="dropdown-divider"></div> -->
+
+        </div>
       </li>
 
 

@@ -28,6 +28,21 @@ export class CategoryService {
     return this.get<Category>(url);
   }
 
+  createCategory(model: Category): Observable<any> {
+    const url = `${this.apiUrl}/${environment.apiEndpoints.category}`;
+    return this.http.post(url, model);
+  }
+  
+  updateCategory(model: Category): Observable<any> {
+    const url = `${this.apiUrl}/${environment.apiEndpoints.category}`;
+    return this.http.put(url, model);
+  }
+
+  deleteCategory(id:number): Observable<any> {
+    const url = `${this.apiUrl}/${environment.apiEndpoints.category}/${id}`;
+    return this.http.delete(url);
+  }
+
   private get<T>(url: string, options?: any): Observable<T> {
     return this.http.get(url, options).pipe(
       map(res => this.extractData<T>(res))

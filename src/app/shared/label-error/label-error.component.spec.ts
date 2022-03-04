@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BindingExamplesComponent } from './binding-examples.component';
+import { LabelErrorComponent } from './label-error.component';
 
-describe('BindingExamplesComponent', () => {
-  let component: BindingExamplesComponent;
-  let fixture: ComponentFixture<BindingExamplesComponent>;
+describe('LabelErrorComponent', () => {
+  let component: LabelErrorComponent;
+  let fixture: ComponentFixture<LabelErrorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BindingExamplesComponent ]
+      declarations: [ LabelErrorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BindingExamplesComponent);
+    fixture = TestBed.createComponent(LabelErrorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
