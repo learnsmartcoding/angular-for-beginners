@@ -14,6 +14,7 @@ export interface FoodMenu {
     price: number;
     categoryId: number;
     cuisineId: number;
+    isActive: boolean;
     foodImage: FoodMenuImage;
 }
 

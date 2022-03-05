@@ -4,7 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SharedModule } from '../shared/shared.module';
 import { AdminRoutingModule, routedComponents } from './admin-routing.module';
-import { EditCuisineComponent } from './edit-cuisine/edit-cuisine.component';
+import { FoodEditComponent } from './food/food-edit/food-edit.component';
+import { FoodViewComponent } from './food/food-view/food-view.component';
+import { FoodCreateComponent } from './food/food-create/food-create.component';
 
 @NgModule({
   imports: [
@@ -13,10 +15,10 @@ import { EditCuisineComponent } from './edit-cuisine/edit-cuisine.component';
     AdminRoutingModule,
     ReactiveFormsModule,
     NgxSpinnerModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [],
-  declarations: [routedComponents, EditCuisineComponent],
+  declarations: [routedComponents, FoodEditComponent, FoodViewComponent, FoodCreateComponent],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

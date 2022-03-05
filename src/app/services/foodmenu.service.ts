@@ -18,6 +18,21 @@ export class FoodMenuService {
     this.apiUrl = environment.apiUrl;
   }
 
+  createFoodItem(foodMenu: FoodMenu): Observable<any>{
+    const url = `${this.apiUrl}/${environment.apiEndpoints.foodmenu}`;
+    return this.http.post(url,foodMenu);
+  }
+
+  updateFoodItem(foodMenu: FoodMenu): Observable<any>{
+    const url = `${this.apiUrl}/${environment.apiEndpoints.foodmenu}`;
+    return this.http.put(url,foodMenu);
+  }
+
+  deleteFoodItem(id:number):Observable<any>{
+    const url = `${this.apiUrl}/${environment.apiEndpoints.foodmenu}/${id}`;
+    return this.http.delete(url);
+  }
+
   GetFoodItemsByCuisineId(id: number): Observable<FoodMenu[]> {
     const url = `${this.apiUrl}/${environment.apiEndpoints.foodmenu}/cuisine/${id}/allFoodMenus`;
     return this.getArrary<FoodMenu>(url);

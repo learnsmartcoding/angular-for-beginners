@@ -12,7 +12,7 @@ export class FoodDetailGuardGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       const id = Number(route.paramMap.get('foodId'));
       if(isNaN(id) || id <1){
-        alert('Invalid food item id');
+        //alert('Invalid food item id');
         this.router.navigate(['/cuisine/food/all']);
         return false;
       }

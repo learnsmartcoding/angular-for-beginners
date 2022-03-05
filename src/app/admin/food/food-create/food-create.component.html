@@ -1,0 +1,63 @@
+<h3>Create Food Item</h3><br>
+<div class="container">
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+        <p style="font-size: 20px; color: white">Processing...</p>
+    </ngx-spinner>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <app-display-errors [errors]="errors"></app-display-errors>
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name" class="form-control" placeholder="Enter Food Name"
+                [class.has-error]="control('name')?.errors">
+            <app-label-error [control]="control('name')"></app-label-error>
+        </div>
+        <div class="form-group">
+            <label for="description">Food Description</label>
+            <div class="form-line">
+                <textarea rows="10" [class.has-error]="control('description')?.errors" formControlName="description"
+                    class="form-control" placeholder="Enter description of the food">
+                        </textarea>
+                <app-label-error [control]="control('description')"></app-label-error>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="description">Price</label>
+                    <div class="form-line">
+                        <input [class.has-error]="control('price')?.errors" formControlName="price" class="form-control"
+                            placeholder="Enter price of the food item">
+                        <app-label-error [control]="control('price')"></app-label-error>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="isActive">Select Category</label>
+                    <select class="form-control" formControlName="categoryId">
+                        <option value="-1">Select</option>
+                        <option *ngFor="let item of categories" [value]="item.id">{{item.name}}</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="isActive">Select Cuisine</label>
+                    <select class="form-control" formControlName="cuisineId">
+                        <option value="-1">Select</option>
+                        <option *ngFor="let item of cuisines" [value]="item.id">{{item.name}}</option>
+
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <button class="btn btn-success btn-block" type="submit">Save</button>
+    </form>
+
+    <div>
+        <a class="nav-link" [routerLink]="['/admin/food/all']">GO BACK</a>
+    </div>
+</div>
