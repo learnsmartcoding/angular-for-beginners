@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { FoodDetailGuardGuard } from './food-detail-guard.guard';
+import { FoodDetailsGuard } from './food-details.guard';
 
-describe('FoodDetailGuardGuard', () => {
-  let guard: FoodDetailGuardGuard;
+describe('FoodDetailsGuard', () => {
+  let guard: FoodDetailsGuard;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    guard = TestBed.inject(FoodDetailGuardGuard);
+    guard = TestBed.inject(FoodDetailsGuard);
   });
 
   it('should be created', () => {

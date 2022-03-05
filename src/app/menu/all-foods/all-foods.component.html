@@ -26,7 +26,7 @@
                 <td>{{item.price | currency:'USD'}}</td>
                 <td>{{getCategory(item.categoryId)}}</td>
                 <td>{{getCuisine(item.cuisineId)}}</td>
-                <td> <a class="btn btn-sm btn-primary" [routerLink]="['/cuisine/food', item.id]">View</a></td>
+                <td> <a class="btn btn-sm btn-primary" [routerLink]="['/cuisine/food', item.id-1]">View</a></td>
                 <td>
                     <img class="card-img-top" src="data:{{item.foodImage.mime}};base64,{{item.foodImage.base64Image}}"
                         alt="{{item.name}}">

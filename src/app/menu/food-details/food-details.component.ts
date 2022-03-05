@@ -1,11 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Category } from 'src/app/models/category.model';
 import { FoodMenuImage } from 'src/app/models/food-menu-image.model';
 import { FoodMenu, FoodMenuResolved } from 'src/app/models/food-menu.model';
 import { CategoryService } from 'src/app/services/category.service';
-import { FoodMenuResolver } from 'src/app/services/foodmenu-resolver.service';
 import { FoodMenuService } from 'src/app/services/foodmenu.service';
 
 @Component({
@@ -25,7 +23,7 @@ export class FoodDetailsComponent implements OnInit {
     private categoryService: CategoryService,
     private foodmenuService: FoodMenuService,
     private route: ActivatedRoute
-  ) {
+  ) {    
     //this.route.data.subscribe(data=>this.foodMenuResolved = data['foodMenuItem']);
     this.foodMenuResolved = this.route.snapshot.data['foodMenuItem'];
     this.foodMenu = <FoodMenu>this.foodMenuResolved.foodMenu;
