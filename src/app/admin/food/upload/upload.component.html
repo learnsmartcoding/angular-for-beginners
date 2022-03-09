@@ -1,0 +1,24 @@
+<h3>Upload food images</h3>
+<br>
+<div>
+    <form [formGroup]="form" (ngSubmit)="Submit($event.target.files)">
+
+        <app-display-errors [errors]="errors"></app-display-errors>
+        <div class="form-group">
+            <label for="file">Choose File: </label>&nbsp;
+            <input type="file" #myInput formControlName="fileContact" id="file" required class="form-control"
+                (change)="handleFileInput($event.target)">
+        </div>
+
+    </form>
+</div>
+<br>
+<div *ngIf="foodMenuImages?.length" class="card" style="width: 35rem;">
+    <carousel [isAnimated]="true">
+        <slide *ngFor="let item of foodMenuImages">
+            <img src="data:{{item.mime}};base64,{{item.base64Image}}" alt="first slide" height="400px" width="400px"
+                style="display: block; width: 100%;">
+        </slide>
+
+    </carousel>
+</div>

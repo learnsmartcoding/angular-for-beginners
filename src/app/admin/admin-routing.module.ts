@@ -8,6 +8,7 @@ import { EditCuisineComponent } from './edit-cuisine/edit-cuisine.component';
 import { FoodCreateComponent } from './food/food-create/food-create.component';
 import { FoodEditComponent } from './food/food-edit/food-edit.component';
 import { FoodViewComponent } from './food/food-view/food-view.component';
+import { UploadComponent } from './food/upload/upload.component';
 
 const routes: Routes = [
   {
@@ -46,4 +47,5 @@ export const routedComponents = [
   FoodCreateComponent,
   FoodEditComponent,
   FoodViewComponent,
+  UploadComponent
 ];

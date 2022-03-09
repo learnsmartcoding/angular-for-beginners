@@ -18,6 +18,11 @@ export class FoodMenuService {
     this.apiUrl = environment.apiUrl;
   }
 
+  public uploadImage(file: FormData, id: number): Observable<any> {
+    const url = `${this.apiUrl}/${environment.apiEndpoints.foodmenu}/upload/${id}`;
+    return this.http.post(url, file);
+}
+
   createFoodItem(foodMenu: FoodMenu): Observable<any>{
     const url = `${this.apiUrl}/${environment.apiEndpoints.foodmenu}`;
     return this.http.post(url,foodMenu);
