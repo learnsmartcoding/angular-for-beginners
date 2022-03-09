@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
 import {  FoodMenu } from '../models/food-menu.model';
 import { FoodMenuImage } from '../models/food-menu-image.model';
 import { environment } from 'src/environments/environment';
@@ -76,5 +76,31 @@ export class FoodMenuService {
       throw new Error('Bad response status: ' + res.status);
     }
     return (res || {}) as T;
+  }
+
+  
+  GetFoodDetails(foodItemId:number):Observable<FoodMenu>{
+    const url = `${this.apiUrl}/${environment.apiEndpoints.foodmenu}/${foodItemId}`;
+
+    return this.http.get<FoodMenu>(url).pipe(
+      tap(data=>console.log('All data: '+ JSON.stringify(data))), 
+      catchError(this.handleError)
+    );
+  }
+
+  private handleError(err:HttpErrorResponse){
+    // in a real world app, we may send the server to some remote logging infrastructure
+    // instead of just logging it to the console
+    let errorMessage = '';
+    if (err.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      errorMessage = `An error occurred: ${err.error.message}`;
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
+      errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
+    }
+    console.error(errorMessage);
+    return throwError(errorMessage);
   }
 }

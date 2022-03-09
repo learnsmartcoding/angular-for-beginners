@@ -23,8 +23,9 @@ const routes: Routes = [
   {
     path: 'food/:foodId',
     component: FoodDetailsComponent,
-    resolve: { foodMenuItem: FoodMenuResolver },
-    canActivate: [FoodDetailGuardGuard],
+    //uncomment these two lines for adding resolved and auth guard.Commented for exception handling demo. Refer Main branch for complete code
+    // resolve: { foodMenuItem: FoodMenuResolver }, 
+    // canActivate: [FoodDetailGuardGuard],  
   },
 ];
 

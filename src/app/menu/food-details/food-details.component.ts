@@ -20,15 +20,18 @@ export class FoodDetailsComponent implements OnInit {
   foodId!: number;
   foodMenuImages!: FoodMenuImage[];
   foodImage!: FoodMenuImage;
+  errorMessage: string = '';
 
   constructor(
     private categoryService: CategoryService,
     private foodmenuService: FoodMenuService,
     private route: ActivatedRoute
   ) {
-    //this.route.data.subscribe(data=>this.foodMenuResolved = data['foodMenuItem']);
-    this.foodMenuResolved = this.route.snapshot.data['foodMenuItem'];
-    this.foodMenu = <FoodMenu>this.foodMenuResolved.foodMenu;
+    //uncomment these below two lines for integrating Resolver
+    
+    // this.foodMenuResolved = this.route.snapshot.data['foodMenuItem'];
+    // this.foodMenu = <FoodMenu>this.foodMenuResolved.foodMenu;
+    this.foodId = Number(route.snapshot.paramMap.get('foodId'));
     
   }
 
@@ -44,8 +47,12 @@ export class FoodDetailsComponent implements OnInit {
 
   getFoodDetails() {
     this.foodmenuService
-      .GetFoodItemDetails(this.foodId)
-      .subscribe((data) => (this.foodMenu = data));
+      .GetFoodDetails(this.foodId)
+      .subscribe((data) => (this.foodMenu = data),
+      (err)=>{
+        this.errorMessage = err;
+      }
+      );
   }
 
   getFoodImages() {
@@ -57,7 +64,7 @@ export class FoodDetailsComponent implements OnInit {
   getCategories() {
     this.categoryService.getCategories().subscribe((s) => {
       this.category = s;
-      //this.getFoodDetails();
+      this.getFoodDetails(); //comment this line when resolver is used.
       this.getFoodImages();
     });
   }

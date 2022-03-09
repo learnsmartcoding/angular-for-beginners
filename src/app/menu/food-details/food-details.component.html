@@ -27,5 +27,10 @@
     <p class="">{{foodMenu?.description}}</p>
     <b>Price : <span>{{foodMenu?.price | currency}}</span></b><br>
 </div>
+<div *ngIf="errorMessage">
+    <div class="alert alert-danger" role="alert">
+        Error Details: {{errorMessage}}
+      </div>
+</div>
 <br><br>
 <a class="nav-link" [routerLink]="['/cuisine']" queryParamsHandling="preserve">GO BACK</a>
