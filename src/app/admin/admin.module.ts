@@ -4,9 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { SharedModule } from '../shared/shared.module';
 import { AdminRoutingModule, routedComponents } from './admin-routing.module';
-import { FoodEditComponent } from './food/food-edit/food-edit.component';
-import { FoodViewComponent } from './food/food-view/food-view.component';
-import { FoodCreateComponent } from './food/food-create/food-create.component';
 
 @NgModule({
   imports: [
@@ -18,7 +15,7 @@ import { FoodCreateComponent } from './food/food-create/food-create.component';
     SharedModule,
   ],
   exports: [],
-  declarations: [routedComponents, FoodEditComponent, FoodViewComponent, FoodCreateComponent],
+  declarations: [routedComponents],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
