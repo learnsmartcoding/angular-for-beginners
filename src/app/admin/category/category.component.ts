@@ -76,7 +76,7 @@ export class CategoryComponent implements OnInit {
   private buildForm(): FormGroup {
     return new FormGroup({
       name: new FormControl('', [Validators.required]),
-      isActive: new FormControl('true'),
+      isActive: new FormControl('',[Validators.required]),
     });
   }
 
