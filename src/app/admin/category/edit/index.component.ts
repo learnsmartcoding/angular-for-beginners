@@ -47,6 +47,7 @@ export class UpdateCategoryComponent implements OnInit {
     validateAllFormFields(this.form);
     if (this.form.valid) {
       const model = this.getModel();
+
       this.spinner.show();
       this.categoryService.updateCategory(model).subscribe(
         () => this.onSaveComplete(),
@@ -70,7 +71,7 @@ export class UpdateCategoryComponent implements OnInit {
   private buildForm(): FormGroup {
     return new FormGroup({
       name: new FormControl('', [Validators.required]),
-      isActive: new FormControl('true'),
+      isActive: new FormControl('',[Validators.required]),
     });
   }
 
@@ -89,7 +90,7 @@ export class UpdateCategoryComponent implements OnInit {
 
   private loadCategory(category: Category) {
     this.control('name')?.patchValue(category.name);
-    this.control('isActive')?.patchValue(category.isActive);
+    this.control('isActive')?.patchValue(category.isActive?'true':'false');
   }
 
   onSaveComplete(): void {
