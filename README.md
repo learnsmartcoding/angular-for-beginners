@@ -42,6 +42,6 @@ We will be using the APIs hosted in the below URL.
 https://learnsmartcoding-restaurant.azurewebsites.net/swagger/index.html
 
 
-I hope you enjoy this video.
+I hope you enjoy this video. See more for CI/CD demo
 
 Happy Learning!
