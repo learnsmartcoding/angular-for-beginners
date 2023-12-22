@@ -9,6 +9,7 @@ export const environment: EnvironmentConfiguration = {
     category: 'category',
     cuisine: 'cuisine',
     foodmenu: 'foodmenu',
+    //jhkl
   },
   cacheTimeInMinutes: 30,
 };
